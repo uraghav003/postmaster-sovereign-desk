@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sari-sovereign": {
+      "command": "node",
+      "args": ["C:/Users/aecr/.omp/agent/mcp-orchestrator/server.js"]
+    }
+  }
+}
