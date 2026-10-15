@@ -1,0 +1,3391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Postmaster Sovereign Desk — Omnichannel AI Messenger & Calling Hub</title>
+<style>
+/* ==========================================================================
+   POSTMASTER SOVEREIGN DESK / LOANCALL PRO - THEME & VARIABLES
+   Standalone Commercial Grade SPA - Zero External Dependencies
+   ========================================================================== */
+:root {
+  --bg-base: #0a0e17;
+  --bg-surface: #101726;
+  --bg-elevated: #162035;
+  --bg-card: #1c2a45;
+  --bg-card-hover: #223455;
+  --border: #233352;
+  --border-light: #2c4166;
+  --border-focus: #3b82f6;
+
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-purple: #8b5cf6;
+  --accent-rose: #f43f5e;
+
+  /* Protocol Indicator Accents */
+  --proto-wa: #10b981;
+  --proto-tg: #0ea5e9;
+  --proto-gchat: #f59e0b;
+  --proto-slack: #8b5cf6;
+  --proto-mail: #ec4899;
+
+  --text-main: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  --bubble-in: #162035;
+  --bubble-in-border: #233352;
+  --bubble-out: #1e3a5f;
+  --bubble-out-border: #2563eb;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   TOP SOVEREIGN NAVIGATION BAR
+   ========================================================================== */
+.sovereign-topbar {
+  height: 52px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+}
+
+.brand-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  letter-spacing: 0;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.topbar-center-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.stat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 6px var(--accent-emerald);
+}
+
+.stat-dot.amber {
+  background: var(--accent-amber);
+  box-shadow: 0 0 6px var(--accent-amber);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-icon:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+.btn-topbar {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.btn-topbar:hover {
+  background: var(--bg-card);
+  border-color: var(--border-light);
+}
+
+.btn-topbar.primary {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+
+.btn-topbar.primary:hover {
+  background: #2563eb;
+}
+
+/* ==========================================================================
+   APP WORKSPACE GRID
+   ========================================================================== */
+.sovereign-workspace {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR: CHANNELS & CONVERSATIONS
+   ========================================================================== */
+.sidebar {
+  width: 350px;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.sidebar-header {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 10px 8px 34px;
+  font-size: 13px;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: var(--border-focus);
+}
+
+.search-clear {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+}
+
+/* Channel Filters */
+.channel-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.channel-filter-bar::-webkit-scrollbar { display: none; }
+
+.channel-chip {
+  padding: 5px 9px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.channel-chip:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+.channel-chip.active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--accent-blue);
+  color: var(--text-main);
+}
+
+.channel-chip .chip-count {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1px 5px;
+  border-radius: 8px;
+}
+
+.channel-chip.active .chip-count {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* Protocol Dot Indicators */
+.proto-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.proto-dot.wa { background: var(--proto-wa); }
+.proto-dot.tg { background: var(--proto-tg); }
+.proto-dot.gchat { background: var(--proto-gchat); }
+.proto-dot.slack { background: var(--proto-slack); }
+.proto-dot.mail { background: var(--proto-mail); }
+
+/* Conversation List */
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.conversation-list::-webkit-scrollbar {
+  width: 5px;
+}
+.conversation-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.conv-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(35, 51, 82, 0.4);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  position: relative;
+}
+
+.conv-item:hover {
+  background: var(--bg-elevated);
+}
+
+.conv-item.active {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.conv-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.conv-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid var(--border-light);
+}
+
+.conv-channel-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-surface);
+}
+
+.conv-channel-badge.wa { background: var(--proto-wa); }
+.conv-channel-badge.tg { background: var(--proto-tg); }
+.conv-channel-badge.gchat { background: var(--proto-gchat); }
+.conv-channel-badge.slack { background: var(--proto-slack); }
+.conv-channel-badge.mail { background: var(--proto-mail); }
+
+.conv-channel-badge svg {
+  width: 10px;
+  height: 10px;
+  fill: #fff;
+}
+
+.conv-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.conv-row-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.conv-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conv-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.conv-row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.conv-loan-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conv-loan-tag.sanction {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.conv-loan-tag.disbursed {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-purple);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.conv-row-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.conv-last-msg {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.conv-unread {
+  background: var(--accent-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  margin-left: 6px;
+}
+
+/* ==========================================================================
+   CENTER MAIN CHAT AREA
+   ========================================================================== */
+.main-chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+  height: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+/* Chat Header */
+.chat-header {
+  height: 60px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.chat-header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.chat-header-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chat-header-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-header-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-header-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-action-chat {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-action-chat:hover {
+  background: var(--bg-card);
+  border-color: var(--border-light);
+}
+
+.btn-action-chat.call {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: var(--accent-emerald);
+}
+
+.btn-action-chat.call:hover {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+.btn-action-chat.meet {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.4);
+  color: var(--accent-cyan);
+}
+
+.btn-action-chat.meet:hover {
+  background: rgba(6, 182, 212, 0.25);
+}
+
+.btn-action-chat.genie {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: var(--accent-purple);
+}
+
+.btn-action-chat.genie:hover {
+  background: rgba(139, 92, 246, 0.25);
+}
+
+/* Chat Message Thread */
+.chat-thread {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-image: radial-gradient(rgba(35, 51, 82, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.chat-thread::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-thread::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.date-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.date-chip {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 3px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Message Bubbles */
+.message-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 72%;
+}
+
+.message-row.incoming {
+  align-self: flex-start;
+}
+
+.message-row.outgoing {
+  align-self: flex-end;
+}
+
+.bubble {
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  font-size: 13px;
+  line-height: 1.45;
+  position: relative;
+  word-break: break-word;
+}
+
+.incoming .bubble {
+  background: var(--bubble-in);
+  border: 1px solid var(--bubble-in-border);
+  color: var(--text-main);
+  border-bottom-left-radius: 3px;
+}
+
+.outgoing .bubble {
+  background: var(--bubble-out);
+  border: 1px solid var(--bubble-out-border);
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+
+.msg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.outgoing .msg-footer {
+  color: #93c5fd;
+}
+
+/* Delivery Status Checks */
+.status-ticks {
+  display: inline-flex;
+  align-items: center;
+}
+.status-ticks svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+.status-ticks.read svg {
+  fill: #38bdf8;
+}
+
+/* Rich Document Card Stubs */
+.rich-card-doc {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.doc-icon-wrap {
+  width: 36px;
+  height: 36px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f87171;
+}
+
+.doc-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doc-size {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.doc-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-doc-action {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+.btn-doc-action:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Voice Note Waveform Card */
+.rich-voice-player {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.btn-play-voice {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.waveform-bars {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+}
+
+.wf-bar {
+  width: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  transition: height 0.15s ease;
+}
+
+.wf-bar.active {
+  background: #38bdf8;
+}
+
+.voice-time {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+/* Meeting Card Stub */
+.rich-meet-card {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meet-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.meet-card-details {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.meet-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-meet-join {
+  background: var(--accent-cyan);
+  color: #082f49;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-meet-rsvp {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   SMART COMPOSER
+   ========================================================================== */
+.smart-composer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Spintax Preview Bar */
+.spintax-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-elevated);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-light);
+  font-size: 11px;
+}
+
+.spintax-label {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.spintax-sample {
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-spin-action {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-spin-action:hover {
+  background: rgba(6, 182, 212, 0.3);
+}
+
+/* Quick Template Chips */
+.template-chips-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.template-chips-bar::-webkit-scrollbar { display: none; }
+
+.template-chip {
+  padding: 3px 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.template-chip:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+/* Composer Controls & Input */
+.composer-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.composer-input-wrap {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s ease;
+}
+
+.composer-input-wrap:focus-within {
+  border-color: var(--border-focus);
+}
+
+.composer-textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 13px;
+  resize: none;
+  max-height: 120px;
+  min-height: 24px;
+  line-height: 1.4;
+}
+
+.composer-actions-left, .composer-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-composer-tool {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-composer-tool:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+.btn-composer-tool.recording {
+  color: #ef4444;
+  animation: pulseMic 1.2s infinite;
+}
+
+@keyframes pulseMic {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); background: rgba(239, 68, 68, 0.2); }
+  100% { transform: scale(1); }
+}
+
+.btn-send-message {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-send-message:hover {
+  background: #2563eb;
+}
+
+/* ==========================================================================
+   RIGHT INSPECTOR DRAWER (COLLAPSIBLE)
+   ========================================================================== */
+.inspector-drawer {
+  width: 380px;
+  background: var(--bg-surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: margin-right 0.25s ease, opacity 0.25s ease;
+}
+
+.inspector-drawer.collapsed {
+  margin-right: -380px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inspector-header {
+  height: 52px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+.inspector-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.inspector-tab {
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inspector-tab:hover {
+  color: var(--text-main);
+  background: var(--bg-elevated);
+}
+
+.inspector-tab.active {
+  color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.inspector-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+}
+
+.inspector-content::-webkit-scrollbar {
+  width: 5px;
+}
+.inspector-content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Card Section in Inspector */
+.insp-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.insp-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   TAB 1: GENIE AI UNDERWRITER STYLES
+   ========================================================================== */
+.credit-score-widget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+
+.score-number {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  font-family: var(--font-mono);
+}
+
+.score-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.calc-row {
+  margin-bottom: 10px;
+}
+
+.calc-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.calc-val {
+  font-weight: 600;
+  color: var(--text-main);
+  font-family: var(--font-mono);
+}
+
+.range-slider {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--border-light);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+.calc-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+  background: var(--bg-surface);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.calc-summary-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-summary-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.calc-summary-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
+
+/* Multi-Lender Fitment List */
+.lender-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.lender-item:last-child { border-bottom: none; }
+
+.lender-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.lender-details {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.lender-match {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+}
+
+/* AI Auto Reply Box */
+.ai-suggestion-box {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.ai-sugg-text {
+  font-size: 11px;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.btn-insert-reply {
+  background: var(--accent-purple);
+  border: none;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   TAB 2: BHISM CALLING DESK STYLES
+   ========================================================================== */
+.lead-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.lead-prop {
+  color: var(--text-muted);
+}
+
+.lead-val {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.call-timer-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.call-status-indicator {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-emerald);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.call-timer-display {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.call-action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-call-ctrl {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.15s ease;
+}
+
+.btn-call-ctrl:hover {
+  transform: scale(1.08);
+}
+
+.btn-call-ctrl.dial { background: var(--accent-emerald); }
+.btn-call-ctrl.mute { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); }
+.btn-call-ctrl.hangup { background: var(--accent-rose); }
+
+/* Hinglish Voice Script */
+.script-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  font-family: inherit;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+/* Call Dispositions */
+.disposition-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.disp-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  outline: none;
+}
+
+.disp-textarea {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  outline: none;
+  resize: vertical;
+  height: 50px;
+}
+
+.btn-log-call {
+  background: var(--accent-emerald);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+/* Call Log Table */
+.call-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.call-log-table th {
+  text-align: left;
+  padding: 6px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.call-log-table td {
+  padding: 6px;
+  border-bottom: 1px solid rgba(35, 51, 82, 0.4);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   TAB 3: OMNICHANNEL TRACKER & GATEWAY SIMULATOR
+   ========================================================================== */
+.gateway-select-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.gw-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+
+.gw-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--accent-emerald);
+  padding: 4px 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+}
+
+.delivery-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.delivery-log-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: var(--bg-card);
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.log-ch-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #fff;
+}
+.log-ch-badge.wa { background: var(--proto-wa); }
+.log-ch-badge.tg { background: var(--proto-tg); }
+.log-ch-badge.gchat { background: var(--proto-gchat); }
+.log-ch-badge.slack { background: var(--proto-slack); }
+.log-ch-badge.mail { background: var(--proto-mail); }
+
+.log-status {
+  font-weight: 600;
+  color: var(--accent-emerald);
+}
+
+.webhook-json-box {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #58a6ff;
+  max-height: 110px;
+  overflow-y: auto;
+  white-space: pre;
+}
+
+/* ==========================================================================
+   MODAL DIALOG (MEETING ORCHESTRATOR)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  width: 440px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-input, .form-select {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  color: var(--text-main);
+  font-size: 12px;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--border-focus);
+}
+
+.modal-footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  background: var(--bg-elevated);
+}
+
+/* ==========================================================================
+   ATTACHMENT POPOVER
+   ========================================================================== */
+.attach-popover {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 20;
+  display: none;
+}
+
+.attach-popover.active {
+  display: flex;
+}
+
+.attach-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-main);
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+.attach-opt:hover {
+  background: var(--bg-card);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .sidebar { width: 280px; }
+  .inspector-drawer { width: 320px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     TOP SOVEREIGN NAVIGATION BAR
+     ========================================================================== -->
+<header class="sovereign-topbar">
+  <div class="brand-section">
+    <div class="brand-icon">
+      <!-- Sovereign Envelope / Postmaster Shield Icon (Proprietary SVG) -->
+      <svg viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <div class="brand-title">
+        POSTMASTER SOVEREIGN DESK
+        <span class="brand-badge">LOANCALL PRO</span>
+      </div>
+      <div class="brand-sub">Commercial Omnichannel AI Hub & Underwriting Terminal</div>
+    </div>
+  </div>
+
+  <div class="topbar-center-stats">
+    <div class="stat-pill">
+      <span class="stat-dot"></span>
+      <span>Gateway: <b id="topbarGwName">Whapi.Cloud v2 (Active)</b></span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-dot amber"></span>
+      <span>Calling Queue: <b id="topbarQueueCount">6 Leads</b></span>
+    </div>
+  </div>
+
+  <div class="topbar-actions">
+    <button class="btn-topbar" id="btnSimulateInbound" title="Simulate Inbound Lead Message">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5z"/>
+      </svg>
+      Simulate Inbound
+    </button>
+    <button class="btn-topbar" id="btnResetData" title="Reset to Factory Demo Data">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      </svg>
+      Reset Data
+    </button>
+    <button class="btn-icon" id="btnToggleInspector" title="Toggle Inspector Drawer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H5v-2h9v2zm5-4H5v-2h14v2zm0-4H5V7h14v2z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     APP WORKSPACE
+     ========================================================================== -->
+<div class="sovereign-workspace">
+
+  <!-- ========================================================================
+       SIDEBAR: CHANNELS & CONVERSATIONS
+       ======================================================================== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="search-box">
+        <span class="search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search leads, loans, phone...">
+        <button id="searchClearBtn" class="search-clear">x</button>
+      </div>
+
+      <!-- Channel Filter Chips -->
+      <div class="channel-filter-bar">
+        <button class="channel-chip active" data-channel="all">
+          All <span class="chip-count" id="countAll">6</span>
+        </button>
+        <button class="channel-chip" data-channel="wa">
+          <span class="proto-dot wa"></span> WA Protocol <span class="chip-count" id="countWa">2</span>
+        </button>
+        <button class="channel-chip" data-channel="tg">
+          <span class="proto-dot tg"></span> TG Direct <span class="chip-count" id="countTg">1</span>
+        </button>
+        <button class="channel-chip" data-channel="gchat">
+          <span class="proto-dot gchat"></span> Google Chat <span class="chip-count" id="countGchat">1</span>
+        </button>
+        <button class="channel-chip" data-channel="slack">
+          <span class="proto-dot slack"></span> Slack Desk <span class="chip-count" id="countSlack">1</span>
+        </button>
+        <button class="channel-chip" data-channel="mail">
+          <span class="proto-dot mail"></span> Mail Pro <span class="chip-count" id="countMail">1</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Conversation List -->
+    <ul class="conversation-list" id="conversationList">
+      <!-- Populated dynamically via JS -->
+    </ul>
+  </aside>
+
+  <!-- ========================================================================
+       CENTER MAIN CHAT AREA
+       ======================================================================== -->
+  <main class="main-chat-area">
+    <!-- Active Chat Header -->
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-header-avatar" id="activeAvatar">AS</div>
+        <div class="chat-header-meta">
+          <div class="chat-header-name-row">
+            <span class="chat-header-name" id="activeContactName">Amit Sharma</span>
+            <span class="conv-loan-tag sanction" id="activeLoanTag">Personal Loan - Rs. 7.5L</span>
+          </div>
+          <div class="chat-header-sub">
+            <span id="activeChannelBadge">WA Protocol</span>
+            <span>&bull;</span>
+            <span id="activeContactPhone">+91 98201 44521</span>
+            <span>&bull;</span>
+            <span style="color: var(--accent-emerald);">Online</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-header-actions">
+        <button class="btn-action-chat call" id="btnHeaderCall" title="Call via Bhism Desk">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.11z"/>
+          </svg>
+          Call via Bhism
+        </button>
+
+        <button class="btn-action-chat meet" id="btnHeaderMeet" title="1-Click Meeting Orchestrator">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+          </svg>
+          Schedule Meet
+        </button>
+
+        <button class="btn-action-chat genie" id="btnHeaderGenie" title="Open Genie Underwriter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2a9 9 0 0 0-9 9c0 3.8 2.4 7 5.7 8.3.4.1.6-.2.6-.4v-1.6c-2.4.5-3-1.2-3-1.2-.4-1.1-1-1.4-1-1.4-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.6.3-1 .6-1.2-2-.2-4-1-4-4.5 0-1 .4-1.8 1-2.4-.1-.3-.4-1.2.1-2.4 0 0 .8-.3 2.5 1a9.06 9.06 0 0 1 4.6 0c1.7-1.3 2.5-1 2.5-1 .5 1.2.2 2.1.1 2.4.6.6 1 1.4 1 2.4 0 3.5-2 4.3-4 4.5.3.3.6.8.6 1.7v2.5c0 .2.2.5.6.4C18.6 18 21 14.8 21 11a9 9 0 0 0-9-9z"/>
+          </svg>
+          Ask Genie
+        </button>
+      </div>
+    </div>
+
+    <!-- Message Thread Container -->
+    <div class="chat-thread" id="chatThread">
+      <!-- Populated dynamically via JS -->
+    </div>
+
+    <!-- Smart Composer -->
+    <div class="smart-composer">
+      <!-- Spintax Bar -->
+      <div class="spintax-bar">
+        <div class="spintax-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.29l-1.42-1.42a1 1 0 0 0-1.41 0L14.3 4.88l2.83 2.83 3.59-3.59a1 1 0 0 0-.01-1.41zM2.81 12.83l9.06-9.06 2.83 2.83-9.06 9.06z"/>
+          </svg>
+          Spintax Engine:
+        </div>
+        <div class="spintax-sample" id="spintaxSample">
+          {Namaste|Hello} {Sir|Madam}, your loan of {Rs. 5,00,000|Rs. 7,50,000} is approved!
+        </div>
+        <button class="btn-spin-action" id="btnSpinPreview">Spin & Insert</button>
+      </div>
+
+      <!-- Quick Template Chips -->
+      <div class="template-chips-bar">
+        <button class="template-chip" data-tpl="sanction">Sanction Notice & ROI</button>
+        <button class="template-chip" data-tpl="doc">Doc Request Checklist</button>
+        <button class="template-chip" data-tpl="emi">EMI Repayment Schedule</button>
+        <button class="template-chip" data-tpl="greeting">Hinglish Greeting</button>
+        <button class="template-chip" data-tpl="cibil">CIBIL Health Advisory</button>
+      </div>
+
+      <!-- Composer Input Row -->
+      <div class="composer-row">
+        <div class="composer-actions-left">
+          <button class="btn-composer-tool" id="btnAttachment" title="Attach Document / KYC">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 0 1 5 0v10.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5V6H9v9.5a3 3 0 0 0 6 0V5C15 2.24 12.76 0 10 0S5 2.24 5 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" transform="rotate(45 12 12)"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="composer-input-wrap">
+          <textarea id="composerInput" class="composer-textarea" rows="1" placeholder="Type a message or spintax {Hi|Hello}... (Enter to send)"></textarea>
+          <div class="composer-actions-right">
+            <button class="btn-composer-tool" id="btnVoiceNote" title="Record Voice Note Simulation">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn-send-message" id="btnSendMessage" title="Send (Enter)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Attachment Menu Popover -->
+      <div class="attach-popover" id="attachPopover">
+        <button class="attach-opt" data-type="salary">
+          <span>📄</span> Salary Slip (PDF)
+        </button>
+        <button class="attach-opt" data-type="cibil">
+          <span>📊</span> CIBIL Score Report (PDF)
+        </button>
+        <button class="attach-opt" data-type="sanction">
+          <span>📜</span> Pre-Approved Sanction Letter
+        </button>
+        <button class="attach-opt" data-type="bank">
+          <span>💳</span> 6-Month Bank Statement
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       RIGHT INSPECTOR DRAWER (COLLAPSIBLE)
+       ======================================================================== -->
+  <aside class="inspector-drawer" id="inspectorDrawer">
+    <div class="inspector-header">
+      <div class="inspector-tabs">
+        <button class="inspector-tab active" data-tab="genie">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/></svg>
+          Genie AI
+        </button>
+        <button class="inspector-tab" data-tab="bhism">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.11z"/></svg>
+          Bhism Desk
+        </button>
+        <button class="inspector-tab" data-tab="tracker">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H5v-2h9v2zm5-4H5v-2h14v2zm0-4H5V7h14v2z"/></svg>
+          Tracker
+        </button>
+      </div>
+
+      <button class="btn-icon" id="btnCloseInspector" title="Close Drawer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+
+    <!-- Drawer Content Views -->
+    <div class="inspector-content">
+
+      <!-- TAB 1: GENIE AI UNDERWRITER -->
+      <div id="tabGenieView" class="tab-view active">
+        <!-- Credit Underwriting Overview -->
+        <div class="insp-card">
+          <div class="insp-title">Case Underwriting Summary</div>
+          <div class="credit-score-widget">
+            <div>
+              <div style="font-size: 10px; color: var(--text-muted);">CIBIL CREDIT BUREAU</div>
+              <div class="score-number" id="inspCibilVal">785</div>
+            </div>
+            <span class="score-badge" id="inspCibilBadge">Tier-1 Prime</span>
+          </div>
+
+          <div class="lead-profile-grid">
+            <div><span class="lead-prop">Net Income:</span> <span class="lead-val" id="inspIncome">Rs. 95,000/mo</span></div>
+            <div><span class="lead-prop">Current FOIR:</span> <span class="lead-val" id="inspFoir">19.5%</span></div>
+            <div><span class="lead-prop">Existing EMIs:</span> <span class="lead-val" id="inspEmiLoad">Rs. 18,500</span></div>
+            <div><span class="lead-prop">Max Capacity:</span> <span class="lead-val" id="inspMaxLoan" style="color:var(--accent-emerald);">Rs. 18.2 L</span></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Financial Loan Calculator -->
+        <div class="insp-card">
+          <div class="insp-title">Instant EMI & Eligibility Engine</div>
+
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Loan Amount</span>
+              <span class="calc-val" id="calcAmtVal">Rs. 7,50,000</span>
+            </div>
+            <input type="range" class="range-slider" id="sliderAmt" min="100000" max="5000000" step="50000" value="750000">
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Tenure (Months)</span>
+              <span class="calc-val" id="calcTenureVal">48 Mos</span>
+            </div>
+            <input type="range" class="range-slider" id="sliderTenure" min="12" max="84" step="6" value="48">
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-label-row">
+              <span>Interest Rate (ROI)</span>
+              <span class="calc-val" id="calcRoiVal">10.75%</span>
+            </div>
+            <input type="range" class="range-slider" id="sliderRoi" min="8.5" max="22" step="0.25" value="10.75">
+          </div>
+
+          <div class="calc-summary-grid">
+            <div class="calc-summary-item">
+              <span class="calc-summary-label">Monthly EMI</span>
+              <span class="calc-summary-num" id="calcEmiOutput">Rs. 19,292</span>
+            </div>
+            <div class="calc-summary-item">
+              <span class="calc-summary-label">Total Interest</span>
+              <span class="calc-summary-num" id="calcInterestOutput">Rs. 1,76,016</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Lender Fitment Matrix -->
+        <div class="insp-card">
+          <div class="insp-title">Bank Fitment Matrix</div>
+          <div class="lender-item">
+            <div>
+              <div class="lender-name">HDFC Bank Ltd</div>
+              <div class="lender-details">Personal Loan &bull; 10.75% &bull; Zero PF</div>
+            </div>
+            <span class="lender-match">98% Match</span>
+          </div>
+          <div class="lender-item">
+            <div>
+              <div class="lender-name">ICICI Bank</div>
+              <div class="lender-details">Express Credit &bull; 11.20% &bull; Instant</div>
+            </div>
+            <span class="lender-match">94% Match</span>
+          </div>
+          <div class="lender-item">
+            <div>
+              <div class="lender-name">Bajaj Finserv</div>
+              <div class="lender-details">Flexi Loan &bull; 12.50% &bull; Disbursal 2h</div>
+            </div>
+            <span class="lender-match">89% Match</span>
+          </div>
+        </div>
+
+        <!-- AI Smart Auto-Reply Recommendations -->
+        <div class="insp-card">
+          <div class="insp-title">In-Chat Genie Suggestions</div>
+          <div class="ai-suggestion-box">
+            <div class="ai-sugg-text">"Sir, aapka HDFC ke saath 10.75% rate par Rs. 7.5L approval letter ready hai. Shall I dispatch sanction copy?"</div>
+            <button class="btn-insert-reply" data-reply="Sir, aapka HDFC ke saath 10.75% rate par Rs. 7.5L approval letter ready hai. Shall I dispatch sanction copy?">Insert into Composer</button>
+          </div>
+          <div class="ai-suggestion-box">
+            <div class="ai-sugg-text">"Please share last 3 months salary slip to issue formal disbursal voucher today."</div>
+            <button class="btn-insert-reply" data-reply="Please share last 3 months salary slip to issue formal disbursal voucher today.">Insert into Composer</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: BHISM CALLING DESK -->
+      <div id="tabBhismView" class="tab-view" style="display: none;">
+        <!-- Lead Telephony Profile -->
+        <div class="insp-card">
+          <div class="insp-title">Lead Calling Profile</div>
+          <div class="lead-profile-grid">
+            <div><span class="lead-prop">Lead ID:</span> <span class="lead-val" id="bhismLeadId">DC-8921</span></div>
+            <div><span class="lead-prop">City:</span> <span class="lead-val" id="bhismCity">Mumbai</span></div>
+            <div><span class="lead-prop">Employer:</span> <span class="lead-val" id="bhismEmployer">TCS Ltd</span></div>
+            <div><span class="lead-prop">Category:</span> <span class="lead-val" id="bhismCategory">Salaried A+</span></div>
+          </div>
+        </div>
+
+        <!-- Outbound Call Simulator -->
+        <div class="insp-card">
+          <div class="insp-title">Bhism Outbound Telephony</div>
+          <div class="call-timer-box">
+            <div class="call-status-indicator" id="callStatusIndicator">
+              <span class="stat-dot"></span> Line Ready &bull; Cloud PBX
+            </div>
+            <div class="call-timer-display" id="callTimerDisplay">00:00</div>
+            <div class="call-action-btns">
+              <button class="btn-call-ctrl dial" id="btnDialCall" title="Dial Call">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.11z"/></svg>
+              </button>
+              <button class="btn-call-ctrl mute" id="btnMuteCall" title="Mute/Unmute">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.74 4.74C7.29 9.68 7 10.79 7 12c0 2.21 1.79 4 4 4 1.21 0 2.32-.29 2.99-.74l4.74 4.74 1.27-1.27L4.27 3z"/></svg>
+              </button>
+              <button class="btn-call-ctrl hangup" id="btnHangupCall" title="Hangup Call">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Hinglish Script -->
+        <div class="insp-card">
+          <div class="insp-title">
+            <span>Dynamic Hinglish Script</span>
+            <button class="btn-spin-action" id="btnCopyScript">Copy</button>
+          </div>
+          <div class="script-container" id="hinglishScriptBox">
+Namaste Amit Sharma ji! Main Divyanshi Capital se call kar raha hoon.
+Sir, aapka Personal Loan - Rs. 7.5L application HDFC Bank ke saath pre-approved ho chuka hai.
+Aapke 785 CIBIL score par special 10.75% rate aur zero processing fee mili hai.
+Kya main disbursal documents finalize karne ke liye 2 minute le sakta hoon?
+          </div>
+        </div>
+
+        <!-- Call Disposition Form -->
+        <div class="insp-card">
+          <div class="insp-title">Call Disposition & Remarks</div>
+          <div class="disposition-form">
+            <select class="disp-select" id="dispSelect">
+              <option value="Interested - Docs Promised">Interested - Docs Promised</option>
+              <option value="Callback Requested">Callback Requested</option>
+              <option value="Follow-up Tomorrow">Follow-up Tomorrow</option>
+              <option value="Underwriting Queries">Underwriting Queries</option>
+              <option value="Not Reachable / Busy">Not Reachable / Busy</option>
+              <option value="Not Interested / Lost">Not Interested / Lost</option>
+            </select>
+            <textarea class="disp-textarea" id="dispNotes" placeholder="Enter executive call notes / remarks..."></textarea>
+            <button class="btn-log-call" id="btnSaveCallLog">Save & Log Disposition</button>
+          </div>
+        </div>
+
+        <!-- Call History Log -->
+        <div class="insp-card">
+          <div class="insp-title">Recent Call History</div>
+          <table class="call-log-table">
+            <thead>
+              <tr>
+                <th>Lead</th>
+                <th>Disposition</th>
+                <th>Duration</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="callLogTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: OMNICHANNEL TRACKER & GATEWAY SIMULATOR -->
+      <div id="tabTrackerView" class="tab-view" style="display: none;">
+        <!-- Gateway Switcher -->
+        <div class="insp-card">
+          <div class="insp-title">Multi-Provider Gateway</div>
+          <div class="gateway-select-row">
+            <select class="gw-select" id="gatewaySelect">
+              <option value="whapi">Whapi.Cloud Standard Gateway (REST v2)</option>
+              <option value="waha">WAHA (WhatsApp HTTP API - Core)</option>
+              <option value="evolution">Evolution API v2.1 Engine</option>
+              <option value="meta">Meta Cloud API v20.0 (Official Graph)</option>
+            </select>
+            <div class="gw-status-badge">
+              <span class="stat-dot"></span>
+              <span id="gwStatusText">Protocol Status: Connected &bull; Latency 38ms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Dispatch Log Across Channels -->
+        <div class="insp-card">
+          <div class="insp-title">Omnichannel Dispatch Log</div>
+          <div class="delivery-log-list" id="deliveryLogList">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Webhook Event Viewer -->
+        <div class="insp-card">
+          <div class="insp-title">Simulated Webhook Payload</div>
+          <div class="webhook-json-box" id="webhookJsonBox">{
+  "event": "messages.upsert",
+  "gateway": "whapi.cloud",
+  "status": "delivered",
+  "timestamp": 1729080000,
+  "client": "Amit Sharma",
+  "channel": "whatsapp_protocol",
+  "latency_ms": 42
+}</div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</div>
+
+<!-- ==========================================================================
+     MEETING ORCHESTRATOR MODAL DIALOG
+     ========================================================================== -->
+<div class="modal-overlay" id="meetModalOverlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-cyan)"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+        1-Click Team Meeting Orchestrator
+      </div>
+      <button class="btn-icon" id="btnCloseMeetModal" style="border:none; background:transparent;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Meeting Platform</label>
+        <select class="form-select" id="meetPlatform">
+          <option value="Google Meet">Google Meet (Instant Room)</option>
+          <option value="Zoom">Zoom Video Communications</option>
+          <option value="MS Teams">Microsoft Teams Corporate</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Meeting Title / Subject</label>
+        <input type="text" class="form-input" id="meetTitle" value="Loan Sanction Committee Review">
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <div class="form-group" style="flex: 1;">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-input" id="meetDate">
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label class="form-label">Time</label>
+          <input type="time" class="form-input" id="meetTime" value="15:30">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Discussion Agenda</label>
+        <input type="text" class="form-input" id="meetAgenda" value="Final sanction letter terms, ROI lock-in, and KYC clearance">
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-topbar" id="btnCancelMeetModal">Cancel</button>
+      <button class="btn-topbar primary" id="btnDispatchMeetInvite">Generate & Dispatch Invite Card</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     CORE INTERACTIVE JAVASCRIPT & LOCALSTORAGE ENGINE
+     ========================================================================== -->
+<script>
+(function() {
+  'use strict';
+
+  // --------------------------------------------------------------------------
+  // 1. DATA STATE & LOCALSTORAGE PERSISTENCE
+  // --------------------------------------------------------------------------
+  const STORAGE_KEY = 'postmaster_sovereign_store_v1';
+
+  const DEFAULT_LEADS = [
+    {
+      id: 'DC-8921',
+      name: 'Amit Sharma',
+      channel: 'wa',
+      channelName: 'WA Protocol',
+      phone: '+91 98201 44521',
+      email: 'amit.sharma@tcs.com',
+      employer: 'Tata Consultancy Services',
+      city: 'Mumbai',
+      category: 'Salaried A+',
+      loanType: 'Personal Loan - Rs. 7.50 L',
+      loanStage: 'Sanction Queue',
+      cibil: 785,
+      cibilTier: 'Tier-1 Prime',
+      income: 'Rs. 95,000/mo',
+      existingEmi: 'Rs. 18,500',
+      foir: '19.5%',
+      maxCapacity: 'Rs. 18.2 L',
+      unread: 2,
+      lastTime: '10:45 AM',
+      messages: [
+        {
+          id: 'm1',
+          sender: 'lead',
+          text: 'Namaste sir, maine CIBIL score report aur salary slips upload kar di hain. Sanction letter kab milega?',
+          time: '10:40 AM',
+          type: 'text'
+        },
+        {
+          id: 'm2',
+          sender: 'lead',
+          type: 'doc',
+          docName: 'CIBIL_Report_AmitSharma_Score_785.pdf',
+          docSize: '1.2 MB',
+          time: '10:41 AM'
+        },
+        {
+          id: 'm3',
+          sender: 'agent',
+          text: 'Namaste Amit ji! Humne aapke documents verify kar liye hain. HDFC Bank se 10.75% par Rs. 7.5L approval committee se release ho gaya hai.',
+          time: '10:44 AM',
+          status: 'read',
+          type: 'text'
+        },
+        {
+          id: 'm4',
+          sender: 'lead',
+          text: 'Sir, kya ROI thoda aur negotiate ho sakta hai 10.50% tak?',
+          time: '10:45 AM',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      id: 'DC-8922',
+      name: 'Priya Sundaram',
+      channel: 'tg',
+      channelName: 'TG Direct',
+      phone: '+91 98410 77312',
+      email: 'priya@sundaramlogistics.in',
+      employer: 'Sundaram Logistics Pvt Ltd',
+      city: 'Chennai',
+      category: 'Self-Employed Business',
+      loanType: 'Business Loan - Rs. 25.00 L',
+      loanStage: 'Underwriting Review',
+      cibil: 742,
+      cibilTier: 'Tier-2 Strong',
+      income: 'Rs. 2,40,000/mo',
+      existingEmi: 'Rs. 45,000',
+      foir: '18.7%',
+      maxCapacity: 'Rs. 45.0 L',
+      unread: 0,
+      lastTime: '09:20 AM',
+      messages: [
+        {
+          id: 'p1',
+          sender: 'lead',
+          text: 'Hello team, we need working capital expansion of 25L for warehouse dispatch. Last 2 years ITR attached.',
+          time: '09:15 AM',
+          type: 'text'
+        },
+        {
+          id: 'p2',
+          sender: 'agent',
+          text: 'Thank you Priya ma\'am. Underwriting committee has pre-screened ICICI & Bajaj Finserv fitment matrix.',
+          time: '09:20 AM',
+          status: 'read',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      id: 'DC-8923',
+      name: 'Rajesh Verma',
+      channel: 'gchat',
+      channelName: 'Google Chat',
+      phone: '+91 98112 33419',
+      email: 'rajesh.verma@enterprise.org',
+      employer: 'Enterprise Systems India',
+      city: 'Delhi NCR',
+      category: 'Salaried MNC',
+      loanType: 'Home Loan Balance Transfer - Rs. 45.00 L',
+      loanStage: 'Doc Verification',
+      cibil: 810,
+      cibilTier: 'Super Prime',
+      income: 'Rs. 1,80,000/mo',
+      existingEmi: 'Rs. 32,000',
+      foir: '17.7%',
+      maxCapacity: 'Rs. 85.0 L',
+      unread: 1,
+      lastTime: 'Yesterday',
+      messages: [
+        {
+          id: 'r1',
+          sender: 'lead',
+          text: 'Hi Postmaster Desk, currently paying 9.15% on SBI Home Loan. Can we transfer to 8.40%?',
+          time: 'Yesterday',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      id: 'DC-8924',
+      name: 'Neha Kapoor',
+      channel: 'slack',
+      channelName: 'Slack Desk',
+      phone: '+91 99201 88301',
+      email: 'neha.kapoor@medicare.in',
+      employer: 'Max Healthcare Clinic',
+      city: 'Bengaluru',
+      category: 'Doctor / Medical Professional',
+      loanType: 'Doctor Professional Loan - Rs. 15.00 L',
+      loanStage: 'Pre-Approved',
+      cibil: 795,
+      cibilTier: 'Tier-1 Prime',
+      income: 'Rs. 1,60,000/mo',
+      existingEmi: 'Rs. 12,000',
+      foir: '7.5%',
+      maxCapacity: 'Rs. 35.0 L',
+      unread: 0,
+      lastTime: 'Yesterday',
+      messages: [
+        {
+          id: 'n1',
+          sender: 'agent',
+          text: 'Hello Dr. Neha! Special Doctors loan program pre-approved at 9.99% without collateral.',
+          time: 'Yesterday',
+          status: 'read',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      id: 'DC-8925',
+      name: 'Vikram Malhotra',
+      channel: 'mail',
+      channelName: 'Mail Pro',
+      phone: '+91 98230 11992',
+      email: 'vikram.m@globalfin.com',
+      employer: 'Global Financial Advisory',
+      city: 'Pune',
+      category: 'Salaried Professional',
+      loanType: 'Used Car & Working Capital - Rs. 12.00 L',
+      loanStage: 'Disbursal Ready',
+      cibil: 720,
+      cibilTier: 'Tier-2 Standard',
+      income: 'Rs. 1,10,000/mo',
+      existingEmi: 'Rs. 24,000',
+      foir: '21.8%',
+      maxCapacity: 'Rs. 22.0 L',
+      unread: 0,
+      lastTime: 'Oct 14',
+      messages: [
+        {
+          id: 'v1',
+          sender: 'lead',
+          text: 'Please dispatch final disbursal advice copy to my personal email.',
+          time: 'Oct 14',
+          type: 'text'
+        }
+      ]
+    },
+    {
+      id: 'DC-8926',
+      name: 'Sunita Patel',
+      channel: 'wa',
+      channelName: 'WA Protocol',
+      phone: '+91 97123 66490',
+      email: 'sunita.patel@gujaratchem.com',
+      employer: 'Gujarat Chemicals Corp',
+      city: 'Ahmedabad',
+      category: 'Salaried Mid-Corp',
+      loanType: 'Education Loan (Overseas) - Rs. 20.00 L',
+      loanStage: 'Lead Created',
+      cibil: 760,
+      cibilTier: 'Tier-1 Prime',
+      income: 'Rs. 85,000/mo',
+      existingEmi: 'Rs. 8,000',
+      foir: '9.4%',
+      maxCapacity: 'Rs. 28.0 L',
+      unread: 0,
+      lastTime: 'Oct 12',
+      messages: [
+        {
+          id: 's1',
+          sender: 'lead',
+          text: 'Namaste, my son got I-20 admit letter for MS in US. What are unsecured loan options?',
+          time: 'Oct 12',
+          type: 'text'
+        }
+      ]
+    }
+  ];
+
+  const DEFAULT_CALL_LOGS = [
+    { lead: 'Amit Sharma', disp: 'Interested - Docs Promised', dur: '02:14', time: '10:35 AM' },
+    { lead: 'Priya Sundaram', disp: 'Callback Requested', dur: '01:05', time: '09:30 AM' },
+    { lead: 'Rajesh Verma', disp: 'Underwriting Queries', dur: '03:45', time: 'Yesterday' }
+  ];
+
+  const DEFAULT_DELIVERIES = [
+    { channel: 'wa', to: '+91 98201 44521', type: 'Text / Quote', status: 'Read', latency: '42ms' },
+    { channel: 'tg', to: '+91 98410 77312', type: 'Document PDF', status: 'Delivered', latency: '38ms' },
+    { channel: 'gchat', to: 'rajesh.verma@enterprise.org', type: 'Meeting Invite', status: 'Sent', latency: '54ms' },
+    { channel: 'slack', to: '@neha.kapoor', type: 'Doc Checklist', status: 'Read', latency: '29ms' },
+    { channel: 'mail', to: 'vikram.m@globalfin.com', type: 'Disbursal Notice', status: 'Delivered', latency: '120ms' }
+  ];
+
+  // Load from Storage or fallback to default
+  let leads = [];
+  let callLogs = [];
+  let deliveries = [];
+  let activeLeadId = 'DC-8921';
+  let activeChannelFilter = 'all';
+  let isRecordingVoice = false;
+  let voiceTimerInterval = null;
+  let voiceDurationSec = 0;
+
+  // Telephony call simulation state
+  let callInterval = null;
+  let callDuration = 0;
+  let isCallActive = false;
+  let isMuted = false;
+
+  function loadState() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        leads = parsed.leads || DEFAULT_LEADS;
+        callLogs = parsed.callLogs || DEFAULT_CALL_LOGS;
+        deliveries = parsed.deliveries || DEFAULT_DELIVERIES;
+        activeLeadId = parsed.activeLeadId || 'DC-8921';
+        return;
+      }
+    } catch (e) {
+      console.warn('Could not load localStorage, using defaults', e);
+    }
+    leads = JSON.parse(JSON.stringify(DEFAULT_LEADS));
+    callLogs = JSON.parse(JSON.stringify(DEFAULT_CALL_LOGS));
+    deliveries = JSON.parse(JSON.stringify(DEFAULT_DELIVERIES));
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        leads,
+        callLogs,
+        deliveries,
+        activeLeadId
+      }));
+    } catch (e) {
+      console.warn('Failed to save to localStorage', e);
+    }
+  }
+
+  function resetState() {
+    localStorage.removeItem(STORAGE_KEY);
+    loadState();
+    renderAll();
+    showToast('Factory demo data restored successfully!');
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. SPINTAX ENGINE
+  // --------------------------------------------------------------------------
+  function parseSpintax(text) {
+    if (!text) return '';
+    const regex = /\{([^{}]+)\}/g;
+    let match;
+    let iterations = 0;
+    while ((match = regex.exec(text)) !== null && iterations < 50) {
+      const choices = match[1].split('|');
+      const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+      text = text.substring(0, match.index) + randomChoice + text.substring(match.index + match[0].length);
+      regex.lastIndex = 0;
+      iterations++;
+    }
+    return text;
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. UI RENDERING ENGINES
+  // --------------------------------------------------------------------------
+  const conversationListEl = document.getElementById('conversationList');
+  const chatThreadEl = document.getElementById('chatThread');
+  const searchInput = document.getElementById('searchInput');
+  const searchClearBtn = document.getElementById('searchClearBtn');
+
+  function getActiveLead() {
+    return leads.find(l => l.id === activeLeadId) || leads[0];
+  }
+
+  function renderConversationList() {
+    const query = searchInput.value.toLowerCase().trim();
+    conversationListEl.innerHTML = '';
+
+    let visibleCount = 0;
+    let counts = { all: leads.length, wa: 0, tg: 0, gchat: 0, slack: 0, mail: 0 };
+
+    leads.forEach(l => {
+      if (counts[l.channel] !== undefined) counts[l.channel]++;
+
+      // Filter check
+      if (activeChannelFilter !== 'all' && l.channel !== activeChannelFilter) {
+        return;
+      }
+
+      if (query) {
+        const match = l.name.toLowerCase().includes(query) ||
+                      l.phone.toLowerCase().includes(query) ||
+                      l.loanType.toLowerCase().includes(query) ||
+                      l.employer.toLowerCase().includes(query);
+        if (!match) return;
+      }
+
+      visibleCount++;
+
+      const li = document.createElement('li');
+      li.className = `conv-item ${l.id === activeLeadId ? 'active' : ''}`;
+      li.dataset.id = l.id;
+
+      const lastMsg = l.messages[l.messages.length - 1];
+      const lastText = lastMsg ? (lastMsg.text || (lastMsg.type === 'doc' ? '📎 ' + lastMsg.docName : '🎵 Voice note (0:42)')) : 'No messages';
+
+      // SVG Icon for Channel Badge
+      let channelIconSvg = '';
+      if (l.channel === 'wa') {
+        channelIconSvg = '<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+      } else if (l.channel === 'tg') {
+        channelIconSvg = '<svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
+      } else if (l.channel === 'gchat') {
+        channelIconSvg = '<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10z"/></svg>';
+      } else if (l.channel === 'slack') {
+        channelIconSvg = '<svg viewBox="0 0 24 24"><path d="M6 15a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6zm-2 4h16v-2H4v2z"/></svg>';
+      } else {
+        channelIconSvg = '<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
+      }
+
+      const initials = l.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+
+      li.innerHTML = `
+        <div class="conv-avatar-wrap">
+          <div class="conv-avatar">${initials}</div>
+          <div class="conv-channel-badge ${l.channel}">
+            ${channelIconSvg}
+          </div>
+        </div>
+        <div class="conv-details">
+          <div class="conv-row-1">
+            <span class="conv-name">${l.name}</span>
+            <span class="conv-time">${l.lastTime}</span>
+          </div>
+          <div class="conv-row-2">
+            <span class="conv-loan-tag ${l.loanStage.toLowerCase().includes('sanction') ? 'sanction' : (l.loanStage.toLowerCase().includes('disburs') ? 'disbursed' : '')}">
+              ${l.loanType}
+            </span>
+          </div>
+          <div class="conv-row-3">
+            <span class="conv-last-msg">${lastText}</span>
+            ${l.unread > 0 ? `<span class="conv-unread">${l.unread}</span>` : ''}
+          </div>
+        </div>
+      `;
+
+      li.addEventListener('click', () => {
+        selectLead(l.id);
+      });
+
+      conversationListEl.appendChild(li);
+    });
+
+    // Update channel counts
+    document.getElementById('countAll').innerText = counts.all;
+    document.getElementById('countWa').innerText = counts.wa;
+    document.getElementById('countTg').innerText = counts.tg;
+    document.getElementById('countGchat').innerText = counts.gchat;
+    document.getElementById('countSlack').innerText = counts.slack;
+    document.getElementById('countMail').innerText = counts.mail;
+  }
+
+  function selectLead(leadId) {
+    activeLeadId = leadId;
+    const l = getActiveLead();
+    if (l) l.unread = 0; // Mark as read
+    saveState();
+    renderAll();
+  }
+
+  function renderActiveChatHeader() {
+    const l = getActiveLead();
+    if (!l) return;
+
+    const initials = l.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+    document.getElementById('activeAvatar').innerText = initials;
+    document.getElementById('activeContactName').innerText = l.name;
+    document.getElementById('activeLoanTag').innerText = l.loanType;
+    document.getElementById('activeChannelBadge').innerText = l.channelName;
+    document.getElementById('activeContactPhone').innerText = l.phone;
+
+    // Update inspector lead values
+    document.getElementById('inspCibilVal').innerText = l.cibil;
+    document.getElementById('inspCibilBadge').innerText = l.cibilTier;
+    document.getElementById('inspIncome').innerText = l.income;
+    document.getElementById('inspFoir').innerText = l.foir;
+    document.getElementById('inspEmiLoad').innerText = l.existingEmi;
+    document.getElementById('inspMaxLoan').innerText = l.maxCapacity;
+
+    // Bhism Desk Lead values
+    document.getElementById('bhismLeadId').innerText = l.id;
+    document.getElementById('bhismCity').innerText = l.city;
+    document.getElementById('bhismEmployer').innerText = l.employer;
+    document.getElementById('bhismCategory').innerText = l.category;
+
+    // Update Hinglish Voice Script dynamically
+    const scriptBox = document.getElementById('hinglishScriptBox');
+    scriptBox.innerText = `Namaste ${l.name} ji! Main Divyanshi Capital se call kar raha hoon.
+Sir/Ma'am, aapka ${l.loanType} application pre-screen ho chuka hai.
+Aapke profile aur ${l.cibil} CIBIL score par special interest rate aur zero processing fee available hai.
+Kya main disbursal documents verify karne ke liye 2 minute le sakta hoon?`;
+  }
+
+  function renderChatThread() {
+    const l = getActiveLead();
+    if (!l) return;
+
+    chatThreadEl.innerHTML = '';
+
+    // Date Divider
+    const dateDiv = document.createElement('div');
+    dateDiv.className = 'date-divider';
+    dateDiv.innerHTML = '<span class="date-chip">Today &bull; Verified Sovereign Session</span>';
+    chatThreadEl.appendChild(dateDiv);
+
+    l.messages.forEach(m => {
+      const row = document.createElement('div');
+      row.className = `message-row ${m.sender === 'agent' ? 'outgoing' : 'incoming'}`;
+
+      let contentHtml = '';
+
+      if (m.type === 'doc') {
+        contentHtml = `
+          <div class="rich-card-doc">
+            <div class="doc-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            </div>
+            <div class="doc-info">
+              <div class="doc-name">${m.docName}</div>
+              <div class="doc-size">${m.docSize || 'PDF Document'}</div>
+            </div>
+            <div class="doc-actions">
+              <button class="btn-doc-action" onclick="alert('Viewing document preview: ${m.docName}')">Preview</button>
+            </div>
+          </div>
+          ${m.text ? `<p>${m.text}</p>` : ''}
+        `;
+      } else if (m.type === 'voice') {
+        contentHtml = `
+          <div class="rich-voice-player">
+            <button class="btn-play-voice" onclick="toggleVoicePlay(this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="waveform-bars">
+              <div class="wf-bar" style="height: 10px;"></div>
+              <div class="wf-bar" style="height: 18px;"></div>
+              <div class="wf-bar active" style="height: 22px;"></div>
+              <div class="wf-bar active" style="height: 14px;"></div>
+              <div class="wf-bar" style="height: 20px;"></div>
+              <div class="wf-bar active" style="height: 16px;"></div>
+              <div class="wf-bar" style="height: 8px;"></div>
+              <div class="wf-bar" style="height: 14px;"></div>
+              <div class="wf-bar" style="height: 19px;"></div>
+              <div class="wf-bar" style="height: 11px;"></div>
+            </div>
+            <span class="voice-time">${m.duration || '0:38'}</span>
+          </div>
+        `;
+      } else if (m.type === 'meeting') {
+        contentHtml = `
+          <div class="rich-meet-card">
+            <div class="meet-card-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+              <span>${m.meetPlatform || 'Google Meet'}: ${m.meetTitle}</span>
+            </div>
+            <div class="meet-card-details">
+              <div><b>Schedule:</b> ${m.meetDate} at ${m.meetTime}</div>
+              <div><b>Agenda:</b> ${m.meetAgenda}</div>
+            </div>
+            <div class="meet-card-actions">
+              <button class="btn-meet-join" onclick="window.open('${m.meetUrl}', '_blank')">Join Meeting Room</button>
+              <button class="btn-meet-rsvp" onclick="this.innerText='✓ Confirmed'; this.style.color='#10b981';">Accept RSVP</button>
+            </div>
+          </div>
+        `;
+      } else {
+        contentHtml = `<p>${m.text}</p>`;
+      }
+
+      // Checkmarks for outgoing
+      let ticksHtml = '';
+      if (m.sender === 'agent') {
+        ticksHtml = `
+          <span class="status-ticks ${m.status === 'read' ? 'read' : ''}">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <svg viewBox="0 0 24 24" style="margin-left: -7px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </span>
+        `;
+      }
+
+      row.innerHTML = `
+        <div class="bubble">
+          ${contentHtml}
+          <div class="msg-footer">
+            <span>${m.time}</span>
+            ${ticksHtml}
+          </div>
+        </div>
+      `;
+
+      chatThreadEl.appendChild(row);
+    });
+
+    // Auto scroll to bottom
+    chatThreadEl.scrollTop = chatThreadEl.scrollHeight;
+  }
+
+  function renderCallLogs() {
+    const tbody = document.getElementById('callLogTableBody');
+    tbody.innerHTML = '';
+    callLogs.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><b>${c.lead}</b></td>
+        <td><span style="color:var(--accent-cyan);">${c.disp}</span></td>
+        <td>${c.dur}</td>
+        <td>${c.time}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderDeliveries() {
+    const list = document.getElementById('deliveryLogList');
+    list.innerHTML = '';
+    deliveries.forEach(d => {
+      const div = document.createElement('div');
+      div.className = 'delivery-log-item';
+      div.innerHTML = `
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span class="log-ch-badge ${d.channel}">${d.channel.toUpperCase()}</span>
+          <span>${d.to}</span>
+        </div>
+        <div>
+          <span class="log-status">${d.status}</span>
+          <span style="color:var(--text-muted); font-size:10px; margin-left:4px;">(${d.latency})</span>
+        </div>
+      `;
+      list.appendChild(div);
+    });
+  }
+
+  function renderAll() {
+    renderConversationList();
+    renderActiveChatHeader();
+    renderChatThread();
+    renderCallLogs();
+    renderDeliveries();
+  }
+
+  // --------------------------------------------------------------------------
+  // 4. SMART COMPOSER ACTIONS
+  // --------------------------------------------------------------------------
+  const composerInput = document.getElementById('composerInput');
+  const btnSendMessage = document.getElementById('btnSendMessage');
+  const btnSpinPreview = document.getElementById('btnSpinPreview');
+  const spintaxSample = document.getElementById('spintaxSample');
+  const btnAttachment = document.getElementById('btnAttachment');
+  const attachPopover = document.getElementById('attachPopover');
+  const btnVoiceNote = document.getElementById('btnVoiceNote');
+
+  function sendMessage(textPayload = null, extraProps = {}) {
+    let text = textPayload !== null ? textPayload : composerInput.value.trim();
+    if (!text && !extraProps.type) return;
+
+    // Process spintax
+    text = parseSpintax(text);
+
+    const l = getActiveLead();
+    if (!l) return;
+
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    const newMsg = {
+      id: 'm_' + Date.now(),
+      sender: 'agent',
+      text: text,
+      time: timeStr,
+      status: 'read',
+      type: extraProps.type || 'text',
+      ...extraProps
+    };
+
+    l.messages.push(newMsg);
+    l.lastTime = timeStr;
+
+    // Log omnichannel dispatch
+    deliveries.unshift({
+      channel: l.channel,
+      to: l.phone || l.email,
+      type: extraProps.type === 'doc' ? 'Document PDF' : (extraProps.type === 'meeting' ? 'Meeting RSVP' : 'Smart Text'),
+      status: 'Delivered',
+      latency: Math.floor(Math.random() * 25 + 20) + 'ms'
+    });
+    if (deliveries.length > 20) deliveries.pop();
+
+    // Clear composer
+    composerInput.value = '';
+    composerInput.style.height = 'auto';
+
+    saveState();
+    renderAll();
+  }
+
+  btnSendMessage.addEventListener('click', () => sendMessage());
+
+  composerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // Spintax Spin Button
+  btnSpinPreview.addEventListener('click', () => {
+    const raw = spintaxSample.innerText;
+    const spun = parseSpintax(raw);
+    composerInput.value = spun;
+    composerInput.focus();
+  });
+
+  // Template Chips
+  document.querySelectorAll('.template-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const tpl = chip.dataset.tpl;
+      const l = getActiveLead();
+      let text = '';
+      if (tpl === 'sanction') {
+        text = `{Namaste|Hello} ${l.name} ji! Your ${l.loanType} is sanctioned at {10.75%|11.20%} ROI. Please confirm your account details for disbursal.`;
+      } else if (tpl === 'doc') {
+        text = `Dear ${l.name}, please provide: 1) Last 3 months Salary Slips, 2) 6-month Bank Statement, 3) PAN & Aadhaar copy to expedite loan processing.`;
+      } else if (tpl === 'emi') {
+        text = `Loan Repayment Alert: Your monthly EMI is Rs. 19,292 due on the 5th of each month via NACH mandate.`;
+      } else if (tpl === 'greeting') {
+        text = `{Namaste|Hello|Pranam} ${l.name} ji! Divyanshi Capital Postmaster Desk mein aapka swagat hai. Main aapki kya sahayata kar sakta hoon?`;
+      } else if (tpl === 'cibil') {
+        text = `Health Advisory: Your current CIBIL score is ${l.cibil} (${l.cibilTier}). Keeping credit card utilization below 30% will maintain this prime score.`;
+      }
+      composerInput.value = text;
+      composerInput.focus();
+    });
+  });
+
+  // Attachment Popover
+  btnAttachment.addEventListener('click', (e) => {
+    e.stopPropagation();
+    attachPopover.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!attachPopover.contains(e.target) && e.target !== btnAttachment) {
+      attachPopover.classList.remove('active');
+    }
+  });
+
+  document.querySelectorAll('.attach-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const type = opt.dataset.type;
+      const l = getActiveLead();
+      attachPopover.classList.remove('active');
+
+      if (type === 'salary') {
+        sendMessage('', { type: 'doc', docName: `Salary_Slip_3M_${l.name.replace(/\s+/g, '')}.pdf`, docSize: '840 KB' });
+      } else if (type === 'cibil') {
+        sendMessage('', { type: 'doc', docName: `CIBIL_Detailed_Report_Score_${l.cibil}.pdf`, docSize: '1.4 MB' });
+      } else if (type === 'sanction') {
+        sendMessage('', { type: 'doc', docName: `PreApproved_Sanction_Offer_${l.id}.pdf`, docSize: '2.1 MB' });
+      } else if (type === 'bank') {
+        sendMessage('', { type: 'doc', docName: `Bank_Statement_HDFC_6M.xlsx`, docSize: '620 KB' });
+      }
+    });
+  });
+
+  // Voice Note Simulation
+  btnVoiceNote.addEventListener('click', () => {
+    if (!isRecordingVoice) {
+      isRecordingVoice = true;
+      btnVoiceNote.classList.add('recording');
+      voiceDurationSec = 0;
+      voiceTimerInterval = setInterval(() => {
+        voiceDurationSec++;
+      }, 1000);
+      showToast('Recording voice note simulation... Click mic again to finish.');
+    } else {
+      isRecordingVoice = false;
+      btnVoiceNote.classList.remove('recording');
+      clearInterval(voiceTimerInterval);
+      const mins = Math.floor(voiceDurationSec / 60);
+      const secs = voiceDurationSec % 60;
+      const durStr = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      sendMessage('', { type: 'voice', duration: durStr === '0:00' ? '0:24' : durStr });
+      showToast('Voice note dispatched!');
+    }
+  });
+
+  // Global window function for voice play toggle
+  window.toggleVoicePlay = function(btn) {
+    const isPlaying = btn.dataset.playing === 'true';
+    if (!isPlaying) {
+      btn.dataset.playing = 'true';
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+      showToast('Playing voice audio note...');
+      setTimeout(() => {
+        btn.dataset.playing = 'false';
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      }, 4000);
+    } else {
+      btn.dataset.playing = 'false';
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    }
+  };
+
+  // --------------------------------------------------------------------------
+  // 5. INSPECTOR DRAWER TABS & CONTROLS
+  // --------------------------------------------------------------------------
+  const inspectorDrawer = document.getElementById('inspectorDrawer');
+  const btnToggleInspector = document.getElementById('btnToggleInspector');
+  const btnCloseInspector = document.getElementById('btnCloseInspector');
+
+  function toggleInspector() {
+    inspectorDrawer.classList.toggle('collapsed');
+  }
+
+  btnToggleInspector.addEventListener('click', toggleInspector);
+  btnCloseInspector.addEventListener('click', () => inspectorDrawer.classList.add('collapsed'));
+
+  // Switch Tabs in Inspector
+  const inspectorTabs = document.querySelectorAll('.inspector-tab');
+  inspectorTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      inspectorTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const target = tab.dataset.tab;
+      document.getElementById('tabGenieView').style.display = target === 'genie' ? 'block' : 'none';
+      document.getElementById('tabBhismView').style.display = target === 'bhism' ? 'block' : 'none';
+      document.getElementById('tabTrackerView').style.display = target === 'tracker' ? 'block' : 'none';
+    });
+  });
+
+  // Action Buttons from Chat Header
+  document.getElementById('btnHeaderCall').addEventListener('click', () => {
+    inspectorDrawer.classList.remove('collapsed');
+    document.querySelector('.inspector-tab[data-tab="bhism"]').click();
+  });
+
+  document.getElementById('btnHeaderGenie').addEventListener('click', () => {
+    inspectorDrawer.classList.remove('collapsed');
+    document.querySelector('.inspector-tab[data-tab="genie"]').click();
+  });
+
+  // EMI Calculator Engine
+  const sliderAmt = document.getElementById('sliderAmt');
+  const sliderTenure = document.getElementById('sliderTenure');
+  const sliderRoi = document.getElementById('sliderRoi');
+
+  function updateLoanCalculation() {
+    const P = parseFloat(sliderAmt.value);
+    const n = parseInt(sliderTenure.value);
+    const annualR = parseFloat(sliderRoi.value);
+    const r = (annualR / 12) / 100;
+
+    // EMI = P * r * (1+r)^n / ((1+r)^n - 1)
+    const emi = Math.round((P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+    const totalPayable = emi * n;
+    const totalInterest = totalPayable - P;
+
+    document.getElementById('calcAmtVal').innerText = 'Rs. ' + P.toLocaleString('en-IN');
+    document.getElementById('calcTenureVal').innerText = n + ' Mos';
+    document.getElementById('calcRoiVal').innerText = annualR.toFixed(2) + '%';
+
+    document.getElementById('calcEmiOutput').innerText = 'Rs. ' + emi.toLocaleString('en-IN');
+    document.getElementById('calcInterestOutput').innerText = 'Rs. ' + totalInterest.toLocaleString('en-IN');
+  }
+
+  sliderAmt.addEventListener('input', updateLoanCalculation);
+  sliderTenure.addEventListener('input', updateLoanCalculation);
+  sliderRoi.addEventListener('input', updateLoanCalculation);
+  updateLoanCalculation();
+
+  // AI Smart Suggestion Insert buttons
+  document.querySelectorAll('.btn-insert-reply').forEach(btn => {
+    btn.addEventListener('click', () => {
+      composerInput.value = btn.dataset.reply;
+      composerInput.focus();
+    });
+  });
+
+  // Copy Hinglish Script
+  document.getElementById('btnCopyScript').addEventListener('click', () => {
+    const text = document.getElementById('hinglishScriptBox').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('Hinglish Calling Script copied to clipboard!');
+    }).catch(() => {
+      showToast('Copied to clipboard!');
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 6. BHISM TELEPHONY & CALL LOGGING
+  // --------------------------------------------------------------------------
+  const btnDialCall = document.getElementById('btnDialCall');
+  const btnMuteCall = document.getElementById('btnMuteCall');
+  const btnHangupCall = document.getElementById('btnHangupCall');
+  const callStatusIndicator = document.getElementById('callStatusIndicator');
+  const callTimerDisplay = document.getElementById('callTimerDisplay');
+
+  btnDialCall.addEventListener('click', () => {
+    if (isCallActive) return;
+    isCallActive = true;
+    callDuration = 0;
+    callStatusIndicator.innerHTML = '<span class="stat-dot" style="background:#10b981;"></span> Outbound Call Connected';
+    callTimerDisplay.innerText = '00:00';
+
+    callInterval = setInterval(() => {
+      callDuration++;
+      const mins = Math.floor(callDuration / 60);
+      const secs = callDuration % 60;
+      callTimerDisplay.innerText = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }, 1000);
+
+    showToast('Dialing lead via Bhism Cloud PBX...');
+  });
+
+  btnMuteCall.addEventListener('click', () => {
+    if (!isCallActive) return;
+    isMuted = !isMuted;
+    btnMuteCall.style.color = isMuted ? '#ef4444' : 'var(--text-secondary)';
+    showToast(isMuted ? 'Microphone Muted' : 'Microphone Unmuted');
+  });
+
+  btnHangupCall.addEventListener('click', () => {
+    if (!isCallActive) return;
+    isCallActive = false;
+    clearInterval(callInterval);
+    callStatusIndicator.innerHTML = '<span class="stat-dot amber"></span> Call Ended &bull; Pending Disposition';
+    showToast('Call ended. Please record disposition.');
+  });
+
+  document.getElementById('btnSaveCallLog').addEventListener('click', () => {
+    const l = getActiveLead();
+    const disp = document.getElementById('dispSelect').value;
+    const notes = document.getElementById('dispNotes').value.trim();
+
+    const mins = Math.floor(callDuration / 60);
+    const secs = callDuration % 60;
+    const durStr = callDuration > 0 ? `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}` : '01:25';
+
+    callLogs.unshift({
+      lead: l ? l.name : 'Client',
+      disp: disp,
+      dur: durStr,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    });
+    if (callLogs.length > 15) callLogs.pop();
+
+    // Reset notes
+    document.getElementById('dispNotes').value = '';
+    callStatusIndicator.innerHTML = '<span class="stat-dot"></span> Line Ready &bull; Cloud PBX';
+    callTimerDisplay.innerText = '00:00';
+    callDuration = 0;
+
+    saveState();
+    renderCallLogs();
+    showToast(`Call disposition "${disp}" logged successfully!`);
+  });
+
+  // --------------------------------------------------------------------------
+  // 7. MULTI-GATEWAY PROTOCOL SWITCHER
+  // --------------------------------------------------------------------------
+  const gatewaySelect = document.getElementById('gatewaySelect');
+  const gwStatusText = document.getElementById('gwStatusText');
+  const topbarGwName = document.getElementById('topbarGwName');
+  const webhookJsonBox = document.getElementById('webhookJsonBox');
+
+  gatewaySelect.addEventListener('change', () => {
+    const val = gatewaySelect.value;
+    let label = '';
+    let latency = Math.floor(Math.random() * 20 + 25) + 'ms';
+
+    if (val === 'whapi') label = 'Whapi.Cloud v2 (Active)';
+    else if (val === 'waha') label = 'WAHA Plus Core (Port 3000)';
+    else if (val === 'evolution') label = 'Evolution API v2.1 Engine';
+    else if (val === 'meta') label = 'Meta Cloud API v20.0 (Graph)';
+
+    topbarGwName.innerText = label;
+    gwStatusText.innerText = `Protocol Status: Connected \u2022 Latency ${latency}`;
+
+    webhookJsonBox.innerText = JSON.stringify({
+      event: 'provider.handshake',
+      protocol: val,
+      status: 'active',
+      latency: latency,
+      timestamp: Date.now()
+    }, null, 2);
+
+    showToast(`Switched active gateway protocol to: ${label}`);
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. 1-CLICK MEETING ORCHESTRATOR MODAL
+  // --------------------------------------------------------------------------
+  const meetModalOverlay = document.getElementById('meetModalOverlay');
+  const btnHeaderMeet = document.getElementById('btnHeaderMeet');
+  const btnCloseMeetModal = document.getElementById('btnCloseMeetModal');
+  const btnCancelMeetModal = document.getElementById('btnCancelMeetModal');
+  const btnDispatchMeetInvite = document.getElementById('btnDispatchMeetInvite');
+
+  // Set default date to today
+  const todayStr = new Date().toISOString().split('T')[0];
+  document.getElementById('meetDate').value = todayStr;
+
+  function openMeetModal() {
+    meetModalOverlay.classList.add('active');
+  }
+
+  function closeMeetModal() {
+    meetModalOverlay.classList.remove('active');
+  }
+
+  btnHeaderMeet.addEventListener('click', openMeetModal);
+  btnCloseMeetModal.addEventListener('click', closeMeetModal);
+  btnCancelMeetModal.addEventListener('click', closeMeetModal);
+
+  btnDispatchMeetInvite.addEventListener('click', () => {
+    const platform = document.getElementById('meetPlatform').value;
+    const title = document.getElementById('meetTitle').value;
+    const date = document.getElementById('meetDate').value;
+    const time = document.getElementById('meetTime').value;
+    const agenda = document.getElementById('meetAgenda').value;
+
+    let meetUrl = 'https://meet.google.com/dc-postmaster-sync';
+    if (platform === 'Zoom') meetUrl = 'https://zoom.us/j/99218204452';
+    if (platform === 'MS Teams') meetUrl = 'https://teams.microsoft.com/l/meetup-join/postmaster-hub';
+
+    sendMessage('', {
+      type: 'meeting',
+      meetPlatform: platform,
+      meetTitle: title,
+      meetDate: date,
+      meetTime: time,
+      meetAgenda: agenda,
+      meetUrl: meetUrl
+    });
+
+    closeMeetModal();
+    showToast(`Meeting invite dispatched via ${platform}!`);
+  });
+
+  // --------------------------------------------------------------------------
+  // 9. SIMULATE INBOUND MESSAGE
+  // --------------------------------------------------------------------------
+  const btnSimulateInbound = document.getElementById('btnSimulateInbound');
+  const INBOUND_RESPONSES = [
+    'Sir, maine HDFC aur ICICI ke ROI compare kiye hain. Kya processing fee zero rahegi?',
+    'Haanji documents ready hain. Please WhatsApp par KYC link bhej dijiye.',
+    'Maine abhi 6-month bank statement mail kiya hai. Check kar lijiye.',
+    'Sanction letter ka formal approval PDF kab tak issue ho jayega?',
+    'Sure, 3:30 PM meeting attend karunga loan disbursement finalize karne ke liye.'
+  ];
+
+  btnSimulateInbound.addEventListener('click', () => {
+    const l = getActiveLead();
+    if (!l) return;
+
+    const randomText = INBOUND_RESPONSES[Math.floor(Math.random() * INBOUND_RESPONSES.length)];
+    const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    l.messages.push({
+      id: 'm_in_' + Date.now(),
+      sender: 'lead',
+      text: randomText,
+      time: timeStr,
+      type: 'text'
+    });
+    l.lastTime = timeStr;
+
+    // Update webhook json box
+    webhookJsonBox.innerText = JSON.stringify({
+      event: 'messages.upsert',
+      from: l.phone || l.email,
+      channel: l.channelName,
+      message: randomText,
+      timestamp: Date.now()
+    }, null, 2);
+
+    saveState();
+    renderAll();
+    showToast(`Simulated incoming message received from ${l.name}!`);
+  });
+
+  // Reset Data Button
+  document.getElementById('btnResetData').addEventListener('click', () => {
+    if (confirm('Reset to factory demo leads and default conversations?')) {
+      resetState();
+    }
+  });
+
+  // Search input & Channel filter chips
+  searchInput.addEventListener('input', () => {
+    searchClearBtn.style.display = searchInput.value ? 'block' : 'none';
+    renderConversationList();
+  });
+
+  searchClearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchClearBtn.style.display = 'none';
+    renderConversationList();
+  });
+
+  document.querySelectorAll('.channel-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.channel-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeChannelFilter = chip.dataset.channel;
+      renderConversationList();
+    });
+  });
+
+  // Simple Notification Toast
+  function showToast(msg) {
+    let toast = document.getElementById('sovereignToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'sovereignToast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #1e293b;
+        color: #f8fafc;
+        border: 1px solid #3b82f6;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        z-index: 999;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        opacity: 0;
+        pointer-events: none;
+      `;
+      document.body.appendChild(toast);
+    }
+    toast.innerText = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+    }, 2800);
+  }
+
+  // --------------------------------------------------------------------------
+  // 10. INITIALIZATION
+  // --------------------------------------------------------------------------
+  loadState();
+  renderAll();
+  console.log('Postmaster Sovereign Desk initialized successfully.');
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+{
+  "total_tracked_languages": 1100,
+  "commercial_production_coverage": "140+ languages via Cloud Neural Speech (Azure / Google / ElevenLabs)",
+  "open_source_permissive_tts": "40+ languages via Piper (MIT License)",
+  "open_source_permissive_stt": "99 languages via Whisper (MIT License)",
+  "research_only_academic_tts": "1,100+ languages via Meta MMS (CC-BY-NC-4.0 Non-Commercial)",
+  "license_policy": {
+    "commercial_allowed": [
+      "Azure Cognitive Services Speech (Commercial SLA)",
+      "Google Cloud Text-to-Speech (Commercial SLA)",
+      "ElevenLabs Commercial API",
+      "Piper TTS (MIT License)",
+      "faster-whisper / Whisper (MIT License)"
+    ],
+    "commercial_restricted_research_only": [
+      "Meta MMS (facebook/mms-tts) under CC-BY-NC-4.0"
+    ]
+  },
+  "priority_regional_and_global_languages": [
+    {
+      "code": "hin",
+      "name": "Hindi",
+      "native": "हिन्दी",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "eng",
+      "name": "English (Indian / US / UK)",
+      "native": "English",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "ben",
+      "name": "Bengali",
+      "native": "বাংলা",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "tel",
+      "name": "Telugu",
+      "native": "తెలుగు",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "mar",
+      "name": "Marathi",
+      "native": "मराठी",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "tam",
+      "name": "Tamil",
+      "native": "தமிழ்",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "guj",
+      "name": "Gujarati",
+      "native": "ગુજરાતી",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "kan",
+      "name": "Kannada",
+      "native": "ಕನ್ನಡ",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "mal",
+      "name": "Malayalam",
+      "native": "മലയാളം",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "pan",
+      "name": "Punjabi",
+      "native": "ਪੰਜਾਬੀ",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "urd",
+      "name": "Urdu",
+      "native": "اردو",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "spa",
+      "name": "Spanish",
+      "native": "Español",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "fra",
+      "name": "French",
+      "native": "Français",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "deu",
+      "name": "German",
+      "native": "Deutsch",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "ara",
+      "name": "Arabic",
+      "native": "العربية",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "zho",
+      "name": "Mandarin Chinese",
+      "native": "中文",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "jpn",
+      "name": "Japanese",
+      "native": "日本語",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "por",
+      "name": "Portuguese",
+      "native": "Português",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    },
+    {
+      "code": "rus",
+      "name": "Russian",
+      "native": "Русский",
+      "tts_tier": "Cloud Neural & Piper",
+      "commercial_license": "Commercial Safe (MIT / Cloud SLA)",
+      "stt_engine": "Whisper (MIT)"
+    }
+  ]
+}
