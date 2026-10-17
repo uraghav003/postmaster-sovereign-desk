@@ -12,3 +12,7 @@ $RECYCLE.BIN/
 # Node
 node_modules/
 npm-debug.log*
+nclaude-flow.config.jsonn.swarm/
+claude-flow.config.json
+.claude-flow/
+.swarm/
