@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-10-24T01:35:36.559Z",
+  "target": "C:\\Users\\aecr\\postmaster-sovereign-desk",
+  "depth": "quick",
+  "type": "all",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "total": 0
+  },
+  "incomplete": true,
+  "skipped": {
+    "deps": "No package.json found in the scan target; dependency scan could not run."
+  },
+  "findings": []
+}
